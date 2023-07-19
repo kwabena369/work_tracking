@@ -1,0 +1,91 @@
+<!--  this is going to be containing the name of the palce -->
+ <div class=" fixed transform hidden -translate-x-1/2 
+ top-1/2
+ left-1/2
+  form_people_say
+ -translate-y-1/2 
+ bg-transparent backdrop-blur-sm rounded-lg 
+   border-2 border-solid border-gray-700 p-3 "> 
+ 
+    <div class="main_ssection flex flex-col justify-center space-y-3">
+     <span class="bg-fuchsia-400  p-3 rounded-md text-2xl "> 
+         Opportunities
+     </span>
+      
+      <div class="input_information">
+          <div class="name_place border-2 w-20 p-2 border-solid border-yellow-200 " contenteditable  > 
+          </div>
+           <!-- for the level of relevance -->
+             <div class="level_relevant flex flex-col space-y-2 justify-center"> 
+                <span class="flex flex-row "> 
+                    <input type="radio" name="relevance" 
+                      value="Supper_Deal" id="supper_">
+                    <label for="supper_"> 
+                        Supper_Deal
+                         </label>
+                </span>
+             
+                <span class="flex flex-row "> 
+                    <input type="radio" name="relevance" value="middle_supper"  id="middle_supper">
+                    <label for="supper_"> 
+                    middle_supper
+                   </label>     
+                </span>
+                <span class="flex flex-row "> 
+                    <input type="radio" name="relevance" value="less_supper" id="less_supper">
+                     <label for="supper_">
+                           less_supper</label>    
+                 </span>
+             </div>
+      </div>
+    </div>
+
+    <span class="done_btn_form cursor-pointer">
+         Add_Bucket
+    </span>
+ </div>
+
+  
+  <script>
+    //  btn for the sending
+        let done_btn_form = document.querySelector(".done_btn_form");
+         
+        done_btn_form.addEventListener("click",()=>{
+            //  for the content of the name
+            let name_place = document.querySelector(".name_place");
+            //   for the level of thing 
+             let level = document.getElementsByName("relevance")
+            //    here is the real content
+             let real_levile;
+            //    for which_oen of them is not empty 
+              level.forEach(element =>{
+                 if(element.checked){
+                     real_levile = element.value
+                 }
+              })
+             let real_Staff =name_place.innerText;
+              console.log(real_Staff);
+              console.log(real_levile)
+               
+               let mega_colaso = {
+                place_name : real_Staff,
+                level_relevance : real_levile
+             }
+
+                //  sending it to be back end
+                  fetch("/Place/one_here",{
+                     headers : {"Content-Type":"application/json"},
+                     method : "POST",
+                      body  : JSON.stringify(mega_colaso)
+                  }).then(res=>{
+                     res.json().then(
+                         console.log(res.result)
+                     )
+                  })
+                   
+               
+               
+        })
+  
+   
+    </script>

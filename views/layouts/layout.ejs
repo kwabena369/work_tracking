@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="output.css">
+    <title>Lord's _Ways</title>
+</head>
+<body>
+    <%- include('../partials/Boring_header.ejs') %>
+     <div class="grid"   style="grid-template-rows:  auto 1fr  80px;
+     grid-template-columns: 100px minmax(400px,900px) 2fr;">
+         
+    <!--  here is the place for other thing of the gig -->
+    <%- include('../partials/Action_Bat.ejs') %>
+    <%- body %>    
+</div>
+</body>
+</html>
+
+
+<script>
+     let people_says_form_btn =document.querySelector(".people_says_form_btn");
+     let form_people_say = document.querySelector(".form_people_say");
+        people_says_form_btn.addEventListener("click",()=>{
+              form_people_say.classList.toggle("hidden");
+        })
+</script>

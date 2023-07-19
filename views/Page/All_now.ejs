@@ -1,0 +1,22 @@
+<div class="m-auto flex flex-wrap 
+mt-3
+ rounded-lg
+border-solid border-4 border-red-300 p
+space-x-4 w-fit p-5  justify-center "
+ style="grid-column-start: 2;">
+     <% if (typeof all_here_now !== null && typeof all_here_now !== "undeffined") { %>
+          <% all_here_now.forEach(element => { %>
+         <a
+         class="m-3 font-sans 
+          text-white
+         text-2xl bg-blue-400 text-center p-3  rounded-lg"
+         href="/scrap/this_place/<%=element.place_name%>"> 
+         <span >
+            <%= element.place_name %>
+         </span>
+        </a>
+       <% }) %>
+     <% } else{%>
+
+         there is nothing 
+ <% } %>    </div>

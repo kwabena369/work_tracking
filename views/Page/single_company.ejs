@@ -1,0 +1,27 @@
+<% if (typeof res_bee !== null && typeof res_bee !== 'undefined') { %>
+ 
+      <!--  here are the thing about the place that we are going to be 
+      dealing with  -->
+       <div class="wrapper_goodies flex flex-row items-center">
+           <!--  name -->
+            <span class="font-sans text-2xl text-gray-950">
+      <%=res_bee.place_name %>
+               </span>
+      <!-- here are for the info -->
+       <div class="thing_there border-4 border-solid border-orange-400 
+       rounded-lg p-4 text-center "> 
+        <%-res_bee.goolgle_result%>   
+        
+       </div>
+        <!--  the btn for the deleting  -->
+        
+          </div>
+           <a  class="delete bg-red-500
+           text-2xl
+          w-fit rounded-lg p-3 font-sans "
+           href="/Place/delete/<%=res_bee.id%>">
+             Delete
+           </a>
+      <% }else{%>
+      it an't look good
+    <%  } %>
